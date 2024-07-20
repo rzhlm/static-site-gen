@@ -1,11 +1,6 @@
 from htmlnode import HTMLNode
-
-	#	self.tag = tag
-	#	self.value = value
-	#	self.children = children
-	#	self.props = props
+	#	tag, value, children, props
 	
-
 class ParentNode(HTMLNode):
     def __init__(self, tag = None, children, props = None):
         super().__init__(tag = tag, value = None, children = children, props = props)
@@ -16,5 +11,9 @@ class ParentNode(HTMLNode):
         if not self.children:
             raise ValueError("ParentNode: no children present")
         else:
-            
-            return f""
+            start = f"<{self.tag}>"
+            inner = f""
+            for child in self.children:
+                inner += child.to_html()
+            end = f"</{self.tag}>"
+            return f"{start}{inner}{end}"

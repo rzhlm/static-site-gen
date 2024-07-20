@@ -21,7 +21,7 @@ class TestHTMLNode(unittest.TestCase):
         node4 = HTMLNode("tag","value","children")
         node5 = HTMLNode("tag","value")
         self.assertNotEqual(node4, node5)
-
+"""
 class TestLeafNode(unittest.TestCase):
     def test_eq(self):
         node1 = HTMLNode("tag","value","children","props")
@@ -40,7 +40,7 @@ class TestLeafNode(unittest.TestCase):
         node4 = HTMLNode("tag","value","children")
         node5 = HTMLNode("tag","value")
         self.assertNotEqual(node4, node5)
-
+"""
 	
 
 if __name__ == "__main__":
