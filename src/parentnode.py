@@ -2,7 +2,8 @@ from htmlnode import HTMLNode
 	#	tag, value, children, props
 	
 class ParentNode(HTMLNode):
-    def __init__(self, tag = None, children, props = None):
+    # explicitly call init with children = when instantiating
+    def __init__(self, children, tag = None, props = None):
         super().__init__(tag = tag, value = None, children = children, props = props)
 
     def to_html(self):
