@@ -10,16 +10,16 @@ class TestParentNode(unittest.TestCase):
         self.assertEqual(node1, node2)
 
     def test_not_eq(self):
-        node_a = HTMLNode("notag","novalue","nochildren","noprops")
-        node_b = HTMLNode("tag","value","children","props")
+        node_a = ParentNode()
+        node_b = ParentNode()
         self.assertNotEqual(node_a, node_b)
 
-        node3 = HTMLNode("tag","value","children","props")
-        node4 = HTMLNode("tag","value","children")
+        node3 = ParentNode()
+        node4 = ParentNode()
         self.assertNotEqual(node3, node4)
 	
-        node4 = HTMLNode("tag","value","children")
-        node5 = HTMLNode("tag","value")
+        node4 = ParentNode()
+        node5 = ParentNode()
         self.assertNotEqual(node4, node5)
         
 if __name__ == "__main__":
