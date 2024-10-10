@@ -1,10 +1,12 @@
 from textnode import TextNode
 from leafnode import LeafNode
 from enum import Enum
+from enum_types import *
 
-node_type = Enum('node_type',["text","bold","italic","code","link","image"])
+
 
 def main():
+	
 	
 	testObj = TextNode("text", "type", "https://somewhere")
 	print(testObj)
