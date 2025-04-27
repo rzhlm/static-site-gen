@@ -1,11 +1,10 @@
-from textnode import TextNode
+from textnode import TextType, TextNode
 from leafnode import LeafNode
 from enum import Enum
 from enum_types import *
 
 
 """ Structure:
-
 - Delete everything in the /public directory.
 - Copy any static assets (HTML template, images, CSS, etc.) to the /public directory.
 - Generate an HTML file for each Markdown file in the /content directory. 
@@ -17,16 +16,11 @@ from enum_types import *
 		- Join all the HTMLNode blocks under one large parent HTMLNode for the pages.
 		- Use a recursive to_html() method to convert the HTMLNode and all its nested nodes to a giant HTML string and inject it in the HTML template.
 		- Write the full HTML string to a file for that page in the /public directory.
-
-
 """
 
 
-
-def main():
-	
-	
-	testObj = TextNode("text", "type", "https://somewhere")
+def main():	
+	testObj = TextNode("text", TextType.NORMAL_TEXT, "https://somewhere")
 	print(testObj)
 	
 

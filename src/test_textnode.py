@@ -1,21 +1,21 @@
 import unittest
 
-from textnode import TextNode
+from textnode import TextType, TextNode
 
 class TestTextNode(unittest.TestCase):
 	def test_eq(self):
-		node = TextNode("This is a text node", "bold")
-		node2 = TextNode("This is a text node","bold")
+		node = TextNode("This is a text node", TextType.BOLD)
+		node2 = TextNode("This is a text node",TextType.BOLD)
 		self.assertEqual(node, node2)
 
 	def test_not_eq(self):
-		node = TextNode("Text","Type")
-		node2 = TextNode("Text","Other")
+		node = TextNode("Text",TextType.NORMAL)
+		node2 = TextNode("Text",TextType.BOLD)
 		self.assertNotEqual(node, node2)
 
 	def test_not_eq_if_url(self):
-		node = TextNode("Text","Type","http://someplace")
-		node2 = TextNode("Text","Type")
+		node = TextNode("Text",TextType.NORMAL,"http://someplace")
+		node2 = TextNode("Text",TextType.NORMAL)
 		self.assertNotEqual(node, node2)
 
 if __name__ == "__main__":

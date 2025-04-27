@@ -5,8 +5,20 @@ from leafnode import LeafNode
 
 class TestParentNode(unittest.TestCase):
     def test_eq(self):
-        node1 = ParentNode([LeafNode("b","node1"), LeafNode("b","node1")])
-        node2 = ParentNode([LeafNode("b","node1"), LeafNode("b","node1")])
+        node1 = ParentNode(
+            "p",
+            [
+                LeafNode("b","something bolded"),
+                LeafNode(None,"normal text"),
+            ],
+        )
+        node2 = ParentNode(
+            "p",
+            [
+                LeafNode("b","node1"),
+                LeafNode("b","node1"),
+            ]
+        )
         self.assertEqual(node1, node2)
     
     

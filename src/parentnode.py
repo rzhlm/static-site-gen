@@ -3,7 +3,7 @@ from htmlnode import HTMLNode
 	
 class ParentNode(HTMLNode):
     # explicitly call init with children = when instantiating
-    def __init__(self, children, tag = None, props = None):
+    def __init__(self, tag, children, props = None):
         super().__init__(tag = tag, value = None, children = children, props = props)
 
     def to_html(self):
@@ -15,6 +15,6 @@ class ParentNode(HTMLNode):
             start = f"<{self.tag}>"
             inner = f""
             for child in self.children:
-                inner += child.to_html()
+                inner += child
             end = f"</{self.tag}>"
             return f"{start}{inner}{end}"

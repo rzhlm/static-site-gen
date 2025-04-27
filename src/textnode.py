@@ -1,6 +1,15 @@
+from enum import Enum, auto
+
+class TextType(Enum):
+	NORMAL = auto()
+	BOLD = auto()
+	ITALIC = auto()
+	CODE = auto()
+	ANCHOR = auto()
+
 class TextNode:
 
-	def __init__(self, text:str, text_type, url: None| str=None):
+	def __init__(self, text:str, text_type: TextType, url: None| str=None):
 		self.text = text
 		self.text_type = text_type
 		self.url = url

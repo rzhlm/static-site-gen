@@ -2,7 +2,7 @@ import unittest
 
 from leafnode import LeafNode
 
-#    value: str, tag: str = None, props: dict = None
+#    tag, value, props
 
 class TestLeafNode(unittest.TestCase):
     def test_eq(self):
@@ -22,6 +22,12 @@ class TestLeafNode(unittest.TestCase):
         node3 = LeafNode("value","tag",{"key": "val"})
         node4 = LeafNode("value",{"key": "val"})
         self.assertNotEqual(node3, node4)
+
+    def test_leaf_to_html(self):
+        node = LeafNode("p", "Hello, world!")
+        #print(node)
+        #print(node.to_html())
+        self.assertEqual(node.to_html(), "<p>Hello, world!</p>")
 	
 
 if __name__ == "__main__":
