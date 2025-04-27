@@ -9,7 +9,7 @@ def split_nodes_delimiter(old_nodes: list[TextNode],
     """returns list of nodes, split into multiple nodes"""
     outputlist = []
     for old_node in old_nodes:
-        if old_node.text_type != node_type.text:
+        if old_node.text_type != node_type.NORMAL:
             outputlist.append(old_node)
             continue
         try:
