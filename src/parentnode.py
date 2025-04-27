@@ -1,9 +1,15 @@
 from htmlnode import HTMLNode
-	#	tag, value, children, props
-	
+
+
 class ParentNode(HTMLNode):
     # explicitly call init with children = when instantiating
-    def __init__(self, tag, children, props = None):
+    #	HTMLNode: tag, value, children, props
+    def __init__(
+    self,
+    tag: str,
+    children: list,
+    props: dict | None = None
+    ):
         super().__init__(tag = tag, value = None, children = children, props = props)
 
     def to_html(self):
@@ -15,6 +21,11 @@ class ParentNode(HTMLNode):
             start = f"<{self.tag}>"
             inner = f""
             for child in self.children:
-                inner += child
+                inner += child.to_html()
             end = f"</{self.tag}>"
+            #print(f"{start}{inner}{end}")
             return f"{start}{inner}{end}"
+    
+    
+    def __repr__(self):
+    	return f"LeafNode: tag: {self.tag}, val: {self.value}, children: {self.children}, props(None?): {self.props}"

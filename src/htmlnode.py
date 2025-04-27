@@ -1,5 +1,6 @@
 class HTMLNode:
-	def __init__(self, tag: str = None,
+	def __init__(self,
+	         tag: str = None,
 			 value: str = None,
 			 children: list['HTMLNode'] = None,
 			 props: dict = None
@@ -40,7 +41,7 @@ class HTMLNode:
 		"""
 
 	def __repr__(self):
-		return f"tag: {self.tag}, val: {self.value}, children: {self.children}, props: {self.props}"
+		return f"HTMLNode: tag: {self.tag}, val: {self.value}, children: {self.children}, props: {self.props}"
 
 	def __eq__(self, other):
 		if (self.value == other.value

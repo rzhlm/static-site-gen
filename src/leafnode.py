@@ -37,3 +37,6 @@ class LeafNode(HTMLNode):
             and self.props == other.props):
                 return True
             return False
+            
+        def __repr__(self):
+            return f"LeafNode: tag: {self.tag}, val: {self.value}, children(None?): {self.children}, props: {self.props}"

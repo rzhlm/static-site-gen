@@ -15,17 +15,34 @@ class TestParentNode(unittest.TestCase):
         node2 = ParentNode(
             "p",
             [
-                LeafNode("b","node1"),
-                LeafNode("b","node1"),
-            ]
+                LeafNode("b","something bolded"),
+                LeafNode(None,"normal text"),
+            ],
         )
         self.assertEqual(node1, node2)
+        
+        # TODO: also check against a fixed, known output
     
     
     def test_not_eq(self):
-        node_a = ParentNode([LeafNode("b","nodea"), LeafNode("b","nodea")])
-        node_b = ParentNode([LeafNode("b","nodeb"), LeafNode("b","nodeb")])
+        node_a = ParentNode("p", [LeafNode("b","nodea")])
+        node_b = ParentNode("p", [LeafNode("b","nodeb")])
         self.assertNotEqual(node_a, node_b)
+        
+    def test_to_html_with_children(self):
+        child_node = LeafNode("span", "child")
+        parent_node = ParentNode("div", [child_node])
+        self.assertEqual(parent_node.to_html(), "<div><span>child</span></div>")
+        
+    def test_to_html_with_grandchildren(self):
+        grandchild_node = LeafNode("b", "grandchild")
+        child_node = ParentNode("span", [grandchild_node])
+        parent_node = ParentNode("div", [child_node])
+        self.assertEqual(
+        parent_node.to_html(),
+        "<div><span><b>grandchild</b></span></div>",
+        )
+        
 """
         node3 = ParentNode()
         node4 = ParentNode()
